@@ -1,43 +1,51 @@
-# Secure File Transferring in Cloud Computing
+# Secure File Transfer System in Cloud Computing
 
-A web-based application built using Python and Flask that allows users to upload, transfer, and download files securely.
-The system is designed to handle file storage in local or cloud-like folders and ensures files are safely managed during runtime.
+A web-based application built using **Python** and **Flask** that demonstrates secure file uploading, transferring, and downloading. The system is designed to simulate cloud storage environments while ensuring files are managed safely during runtime using **Elliptic Curve Cryptography (ECC)**.
+
+
 
 ## Features
- 1.Secure file upload and download
- 2.Simulated cloud storage integration
- 3.User-friendly web interface
- 4.Runtime handling of uploaded files
- 5.Placeholder folders for uploads and cloud storage
- 6.Easy to extend for real cloud integration or authentication
+
+1.  **Secure File Transfer:** Robust upload and download functionality.
+2.  **ECC Integration:** Uses Elliptic Curve Cryptography for secure key handling (via `keysend.py`).
+3.  **Simulated Cloud Storage:** Emulates cloud-like storage architecture using localized runtime folders.
+4.  **User-Friendly Interface:** Clean, responsive web UI built with HTML5 and CSS3.
+5.  **Dynamic Runtime Handling:** Automatic management of temporary `uploads/` and persistent `cloud/` storage.
+6.  **Extensible:** Ready for integration with real providers like AWS S3 or Google Cloud Storage.
 
 ## Technologies Used
- 1.Python
- 2.Flask
- 3.HTML / CSS
- 4.Cloud / Local Storage (simulated)
- 5.Folder-based file handling at runtime
+
+### Core Stack
+1. **Backend:** Python 3.x, Flask  
+2. **Frontend:** HTML5, CSS3, JavaScript  
+3. **Storage:** Localized Folder-based handling (Cloud Simulation)  
+
+### Security & Cryptography
+1. **ECC (Elliptic Curve Cryptography):** Used for secure key generation and handling.  
+2. **AES Encryption:** Ensures data confidentiality during file transfer.  
+3. **SHA-256 Hashing:** Used for verifying file integrity and security checks.
 
 ## Project Structure
+```
 Secure-File-Transfer-System/
-│
-├── app.py                # Main Flask application
-├── keysend.py            # Key handling (optional / dummy)
-├── README.md
-├── templates/            # HTML templates
-│   ├── index.html
-├── static/               # CSS, JS, images
-|   ├── style.css
-├── uploads/              # Runtime folder for uploaded files
-│   └── README.md         # Explains purpose of folder
-├── cloud/                # Runtime folder simulating cloud storage
-│   └── README.md         # Explains purpose of folder
-└── keys/                 # Dummy key files (real keys excluded)
-│   ├── ecc_private.pem
-│   ├── ecc.public.pem
-
+├── app.py              # Main Flask application logic
+├── keygen.py           # ECC key generation and handling
+├── requirements.txt    # Project dependencies 
+├── README.md           # Project documentation
+├── templates/          # HTML templates
+│   └── index.html
+├── static/             # CSS, JS, and UI assets
+│   └── style.css
+├── uploads/            # Temporary runtime folder for incoming files
+├── cloud/              # Simulated cloud storage destination
+└── keys/               # Directory for ECC private/public keys
+    ├── dummy_private.pem
+    └── dummy_public.pem
+```
+```
 > Note: ECC key files are generated at runtime by running `keysend.py`.  
 > The `keys/` folder contains only dummy files for demonstration.
+```
 
 ## Installation:
 Follow these steps to run the project locally:
@@ -53,6 +61,7 @@ Follow these steps to run the project locally:
 3️.Install dependencies:
 
 ```pip install -r requirements.txt```
+> Note: The requirements.txt contains all the necessary Python packages such as Flask and cryptography.
 
 4️.Run the Flask application:
 
@@ -73,17 +82,30 @@ Follow these steps to run the project locally:
 **File Download Page**  
 ![Download Page](screenshots/download.png)
 
-## System Workflow:
- 1.User uploads a file via the web interface.
- 2.File is stored in the uploads/ folder temporarily.
- 3.Application moves the file to the cloud/ folder (simulated storage).
- 4.Users can download files from the cloud folder via the interface.
- 5.Runtime folders ensure the system works smoothly without pre-existing files.
+## System Workflow
 
-## Future Enhancements:
- 1.Add user authentication and access control
- 2.Integrate real cloud storage (AWS S3 / Google Cloud)
- 3.Add file versioning or logging for uploads/downloads
- 4.Support multi-user environments
+The application follows a structured lifecycle to ensure data integrity and simulated cloud security:
+
+1.  **User Upload:** The user selects a file through the web interface.
+2.  **Staging:** The file is initially stored in the `uploads/` directory for temporary processing.
+3.  **Cloud Transfer:** The system moves the file to the `cloud/` folder, which acts as the simulated persistent storage.
+4.  **Secure Retrieval:** Users can browse and download files directly from the cloud storage via the secure interface.
+5.  **Runtime Management:** The system automatically manages local directories to ensure a smooth experience without needing pre-existing manual folder creation.
+
+## Future Enhancements
+
+To take this project to a production-ready level, the following features are planned:
+
+1. **User Authentication:** Implement robust login systems with role-based access control (RBAC).
+2. **Production Cloud Integration:** Replace the simulated storage with **AWS S3** or **Google Cloud Storage** buckets.
+3. **Version Control & Logging:** Add file versioning and a detailed audit trail for every upload and download action.
+4. **Multi-Tenancy:** Support multi-user environments with private, isolated folders for each account.
+
+---
 
 Author: Sneha P
+
+## Disclaimer
+
+This project is intended for educational purposes regarding cloud simulation and ECC logic.  
+Ensure proper security protocols are followed before deploying to a production environment.
