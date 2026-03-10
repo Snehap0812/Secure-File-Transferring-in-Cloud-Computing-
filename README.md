@@ -41,6 +41,14 @@ Secure-File-Transfer-System/
 └── keys/               # Directory for ECC private/public keys
     ├── dummy_private.pem
     └── dummy_public.pem
+├── screenshots/                 # Folder containing UI screenshots of the project
+│   ├── upload_page.png          # Screenshot of the main page where users upload files
+│   ├── encryption_result.png    # Screenshot showing encryption result, hash, and file details
+│   ├── decryption_page.png      # Screenshot showing file decryption and download option
+│
+├── demo/                        # Folder containing project demonstration media
+│   └── project_demo.mp4         # Short screen recording showing the full workflow of the system
+
 ```
 ```
 > Note: ECC key files are generated at runtime by running `keysend.py`.  
@@ -76,11 +84,11 @@ Follow these steps to run the project locally:
 **File Upload Page**  
 ![Upload Page](screenshots/upload.png)
 
-**Cloud / Runtime Storage Interaction**  
-![Cloud Storage](screenshots/cloud.png)
+**encryption result**  
+![encryption result](screenshots/enc.png)
 
-**File Download Page**  
-![Download Page](screenshots/download.png)
+**decryption resulte**  
+![decryption result](screenshots/dec.png)
 
 ## System Workflow
 
