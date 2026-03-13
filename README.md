@@ -48,7 +48,7 @@ Secure-File-Transfer-System/
 │
 ├── demo/                        # Folder containing project demonstration media
 │   └── project_demo.mp4         # Short screen recording showing the full workflow of the system
-├── installation and running the project         # Folder containing steps to install and run the project
+├── installation and running the project.md         # Folder containing steps to install and run the project
 
 ```
 ```
